@@ -1,0 +1,71 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+.entrada-blog a {
+    display: inline-block;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/** CODIGO AQUI **/
+.contenedor{
+    max-width: 120rem; /*ANCHO MAXIMO DE PANTALLA SIEMPRE FLUYENDO CON EL DISEÑO RESPONSIVO*/
+    /* Max-width: 120rem va a hacer de marco para tu pagina web
+    permitiendo que la misma se estire hasta maximo ancho, sin que se deforme la misma. Vas a ver que en pantallas grandes de mas de 1200px llegara hasta ahi, y te dará dos margenes blancos laterales, quedando la imagen centrada,favoreciendo la visualización. Recuerda que el foco de atención del lector se fijara desde el centro hasta un ancho fijo no excesivo en tamaño, sino el efecto contrario resulta en distracción y perdida de interés sobre el contenido ofrecido */
+    width: 95%; /*95% DE ESOS 120 REM DE ANCHO MAXIMO*/
+    /* width:no se recomienda que sea en medida fija(rem, px, etc)
+    sino que le ponemos %, esto hace que la imagen fluya con la variacion del tamaño de pantalla siendo siempre Responsive */
+    margin: 0 auto; /*CENTRA TODO EL CONTENIDO RESPECTO AL 95% DEL ANCHO DE WIDTH*/
+    /* centra el contenido dentro de los topes que dan los 120rem de max-width */
+}
+img{
+    max-width: 100%;
+     /* width: NO se recomienda que sea en medida fija(rem, px, etc)
+    sino que le ponemos %, esto hace que la imagen fluya con la variacion del tamaño de pantalla siendo siempre Responsive.
+     La imagen se estirara sin deforarse y en pantalla pequeñas conservara su forma original*/
+}
+
+
+/* Que hacen con los mq algunos, bueno en pantalla pequeña width: 95%, para que se vea mejor el contenido
+con el 80% a partir de los 768px, asi tenes un diseño mas responsivo con algo mas de margenes y centrado el contenido, 
+y a partir de los 992px le da un width de 60% adaptando el contenido a pantallas grandes.
+TODO DEPENDIENDO EL CLIENTE Y EL DISEÑO */
+@media (min-width: 768px) {
+    .contenedor{
+        width: 80%;
+    }
+}
+@media (min-width: 992px) {
+    .contenedor{
+    width: 70%;
+    }
+}

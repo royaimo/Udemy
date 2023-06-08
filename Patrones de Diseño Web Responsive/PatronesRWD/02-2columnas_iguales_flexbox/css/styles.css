@@ -1,0 +1,54 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+.contenedor {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.entrada-blog a {
+    display: inline-block;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/** CODIGO AQUI **/
+@media (min-width: 768px) {
+    .dos-columnas{
+        display: flex;
+        gap: 2rem;
+    }
+    /* .entrada-blog{ 
+        - flex-basis: calc(50% - 1rem); modo mas antiguo de dividir el las dos columnas con el 50% -1rem de separación
+        - flex: 0 0 calc(50% - 1rem); otra forma es flex con el primer 0 como valor de crecimiento, el segundo 0 como valor para hacerlo más pequeño, y calc(50% para la porcion de pantalla que tome la columna, -1rem que es la separación
+        -en la clase padre pones si o si justify-content: space-between;
+        -Los mas Facil que se usa hoy es la clase padre pones gap:2rem y te las separa.
+     } */
+
+}

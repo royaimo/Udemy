@@ -1,0 +1,377 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+
+
+
+}
+
+html {
+    font-size: 62.5%;
+    /* html{ font-size: 62.5%;} + body{ font-size: 16px; } ESTE HACK PERMITE RESETEAR EL TAMAÑO
+     DE LA FUENTE DE  TODO TU DOCUMENTO, PERMITIENDO EL USO DE DE LA UNIDAD REM EN VEZ DE PIXELES Y
+     QUE SE VEA BIEN EN CUALQUIER TIPO DE NAVEGADOR.
+     LUEGO SE PUEDE IR MODIFICANDO A MEDIDA QUE SE DESARROLLE EL PROYECTO*/
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    /* Con scroll-snap-type programo el tipo de scroll que le doy al desplazamiento por la página. Puede ser "x" o "y" mandatory
+    siendo los efectos puestos sobre el eje horizontal(x) o vertical(x) respectivamente. Se puede usar mandatory: este frena mas
+    bruscamente sobre la seccion elegida de la página, el otro atirbuto es "proximity" lo que hace una navegacion más suave y relajada */
+}
+
+.navegacion-principal,
+.servicios,
+.footer {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+/* El asterisco solo es un selector universal, selecciona c/u de las elementos HTML para su modificacion.
+A todos les va agregar el box-sizing: border-box
+La coma (*,) despues del asterico permite juntar clases que contendran el mismo elemento
+:before y :after son pseudo elementos que se utilizan como un apoyo a las clases,
+ por ej: .titulo:after {content:"Esto va despues del titulo"}
+ Estos "NO" son elementos nativos de HTML, sino pseudo elementos creados por CSS para HTML
+ html{box-sizing: border-box;}
+*, *:before, *:after{  box-sizing: inherit ; }
+Este hack se conoce como CSS BOX MODEL y permite que el Width y el Padding de una imagen se tomen como una sola unidad.
+Sin el hack si configuro
+.hero{ height: 450px; padding: 20px;} la imagen dara un total de 470px afectando el diseño porque el padding se suma a witdh, no se integra como parte del mismo.
+Aplicando el hack  html{box-sizing: border-box;}  y  *, *:before, *:after{  box-sizing: inherit ; }
+la imagen dara un width total de 450px, siendo el padding 20px parte de los 450 px de width sin distorsionar el diseño de la pagina.
+NOTA: MUY UTIL CUANDO LA GENTE DE DISEÑO UX TE DA UNA PAGINA DONDE RESPETAR MEDIDAS (EJEMPLO IMAGE DE 520 PX) ENTONCES
+TU PUEDES AGREGAR PADDING AL WIDTH DE LA IMAGEN, TENIENDO QUE PREOCUPARTE SOLAMENTE DE TRABAJAR CON UNA SOLA MEDIDA ENTERA
+O SEA LA DEL WIDTH, SIN TENER ESPACIOS EN BLANCO COMO CONTORNO TRABAJANDO PADDING Y WIDTH COMO DOS UNIDADES SEPARADAS.
+*/
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    /*1rem = 10px */
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to LEFT, var(--grisClaro) 0%, var(--blanco) 100%);
+    /* le da fondo en degrade al body del documento.  UNA PAGINA QUE TE AYUDA A CREAR DEGRADADO
+     Y SOMBRAS(GRADIEN-GENERATOR, BOX-SHADOW, BORDER-RADIUS, ES CSSMATIC.COM*/
+
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+.titulo span {
+    font-size: 2rem;
+}
+
+/* margin del navegador principal delimita desde dentro hasta las medidas dadas en width:120rem */
+.contenedor {
+    max-width: 120rem;
+    /*Con  max-width puedo lograr que tome los 1200 px como maximo, sino
+    va a tomar el 100% del contenido que tiene por defecto el .contenedor, en este caso es un Div
+    cuyo diplay es block por defecto y oferece un 100 % de cobertura de ancho*/
+    margin: 0 auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    /*permite que cuando la pagina se proyecta en dispositivo pequeños el botón
+    se vea mas grande para poder presionarlo con el dedo, teniendo el usuario menor presicion que un puntero de mouse*/
+    text-align: center;
+    border: none;
+    /*Se aplica esta clase tambien al boton submit del formulario al final de la pagina, y el border:none es para quitarle el borde al mismo*/
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+    /*el input le saca el efecto este el cual posee por defecto el <a href="#"> CONTACTAR</a>, entonces se lo damos nuevamente con :hover{cursor:pointer}*/
+
+}
+
+/* video 44 Sombra obtenida de CSSmatic.com */
+.sombra {
+    /*webkit y moz box shadow prefijos se agregan porque hay versiones de buscadores
+        que no soportan ciertas herramientas CSS. Para revisar si ciertas
+        herramientas sirven en un navegador usa la web https://CanIuse.com  */
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem
+}
+
+/* Utilidades: es otro enfoque de programacion CSS donde se programa una clase con 1 propiedad dentro que se pueda reutilizar varias veces */
+
+.w-sm-100 {
+    width: 100%;
+}
+
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .alinear-derecha {
+        justify-content: flex-end;
+    }
+}
+
+/*@media query  */
+
+.nav-bg {
+    background-color: var(--secundario)
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    /* por dafault la navegacion viene como flex-direction:row
+                        para ponerlo como flex-direction:column* hay que programarlo*/
+}
+
+/* RESPONSIVE WEB DESIGN : PROGRAMACION ADAPTABLE A DIFERENTES TAMAÑOS DE PANTALLA */
+@media (min-width: 768px) {
+
+    /*A partir de los 768 px el media query hace que se muestre como fila(display: flex) */
+    .navegacion-principal {
+        /* display: flex; no se pone porque media query lo hereda de navegacio-principal*/
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion-principal a {
+    display: block;
+    /*Aqui hasta los 768 px se va a mostrar como block(como columna o bloque) y se centra como columna con text-align:center */
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+    /* SAQUE EL PADING DE NAVEGACION-PRINCIPAL Y LO PUSE AQUI PARA QUE
+                  EL EFECTO :HOVER SE VEA ENTERO SOBRE TODO EL BOTON */
+}
+
+.navegacion-principal a:hover {
+    background-color: #ffc107;
+}
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    /*para que no se repita la imagen cuando achico la página */
+    background-size: cover;
+    /*la imagen cubre todo ancho de la página, sino deja espacio en blaco a los costados*/
+    height: 450px;
+    /* padding: 20px; */
+    /*Tenia padding:20px, pero se lo sacamos porque afecta el sombreado del la imagen*/
+    position: relative;
+    /* Poniendo   position: relative; a la clase padre (.hero) y position:absolute; a la clase hija(.contenido-hero)
+    podemos darle una ubicacion adecuada a la imagen respecto a las coodenadas TOP, BOTTOM, RIGTH, LEFT */
+    margin-bottom: 2rem;
+    /*separa la imagen de fondo con el Main*/
+
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    /* la trasparencia se da con rgbA, configurando la transparencia con  */
+    width: 100%;
+    /* "A" se puede usa tambien la sintaxis background-color:rgba(0 0 0 /70%);*/
+    height: 100%;
+    display: flex;
+    /*este codigo de 4 lineas se puede usar en cualquir proyecto para alinear verticalmente y horizontalmente*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.ubicacion {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+/* Para alinear elementos dentro de una DIV, por ejemplo, usando CSS GRID debemos siempre ir al elemento padre que los contiene */
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        /* MISMAS FORMAS DE FORMAS COLUMNS Y ROWS EN GRID
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: 1fr 1fr 2fr;  Aquí GRID hace divide el ancho del elemento padre en 3 columnas, 2 iguales de 25% y 1 mas grande del 50% */
+        column-gap: 1rem;
+        /*es la separacion entre las columnas*/
+    }
+}
+
+.servicio {
+    /*Alineamos horizontalmente(space-evenly) y centramos vertical. (align-items) los iconos, vamos al Padre <section class="servicio">*/
+    display: flex;
+    /* Reseteo el display con esto */
+    flex-direction: column;
+    /* Le doy sentido de columna porque con fila lo desalinea */
+    align-items: center;
+    /*cetro el contenido de a columna*/
+
+}
+
+.servicio h3 {
+    font-size: 2rem;
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .icono {
+    /*Alineamos horizontalmente(space-evenly) y centramos vertical. (align-items) los dibujos SVG 
+    de ANDROID Y APPLE PARA QUE SE MUESTREN UN PEGADO AL OTRO*/
+    width: 15rem;
+    height: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%);
+    /*Usa la funcion min para evaluar que tamaño mas pequeño aplicar de los especificados dentro de (),
+                        en este caso la funcion dice "Que es mas pequeño los 60rem o el 100% de la pantalla donde se muestra
+                        el contenido? , de ahi evalua el resultado mas pequeño y lo exhibe con ese tamaño */
+    margin: 0 auto;
+    /*Siempre que tenga un display:block puedo alinear con margin:0 auto; en vez cuando tengo el elemento padre con
+                Display:flex ahi si puedo aplicar Justify-content, porque el elemento padre ya me da acceso a Dislay:flex
+                En este caso ponerle dysplay flex al elemento padre para alinear el formulario sería un desastre*/
+    padding: 2rem;
+    border-radius: 2rem;
+
+
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    color: var(--primario);
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1/3;
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: 700;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea {
+    height: 20rem;
+}
+
+/* .campo input[type="text"],
+.campo input[type="email"]{
+
+} */
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/* .footer */
+.footer {
+    text-align: center;
+}
+
+.footer span {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+/* .footer */

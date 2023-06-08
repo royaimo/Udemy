@@ -1,0 +1,324 @@
+:root {
+    --blanco: #ffffff;
+    --negro: #000000;
+    --primario: #2bcc5b;
+    --secundario: #ffff00;
+    --terciario: #929199;
+
+}
+
+html {
+    font-size: 62.5%;
+    /*Reseteo todo el doc. para usar "rem" en vez de píxeles */
+    box-sizing: border-box;
+    /*configuro Border Box asi cuerpo+padding+border marging actúan como una sola unidad */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    /*configuro Border Box junto con lo de HTML*/
+}
+
+
+body {
+    font-size: 16px;
+    /*(junto a HTML)Reseteo todo el doc. para usar "rem" en vez de píxeles */
+    font-family: 'Krub', sans-serif;
+}
+
+h1 {
+    font-size: 3.8rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.8rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.titlespan {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.nav-background {
+    background-color: var(--primario);
+    margin: 0 auto;
+    width: 100%;
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+
+}
+
+.nav-hover:hover {
+    cursor: pointer;
+    background-color: var(--secundario);
+    color: var(--negro);
+    border-radius: .3rem;
+}
+
+@media (max-width: 768px) {
+    .nav-background {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.nav-anchor {
+    color: var(--blanco);
+    font-size: 2rem;
+    font-weight: 700;
+    padding: .5rem;
+    text-decoration: none;
+}
+
+.section-design-bg {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    position: relative;
+
+}
+
+.content-design-bg {
+    /* Pasos para ubicacion correcta de contenido sobre imagen
+    1- Se crea un DIV por sobre la imagen y dentro del section
+    El DIV permite un correcto uso de CSS sobre el mismo
+    2- Posicion relativa al Section, este area queda centrada desde el top y left side
+    3- Posicion absoluta al DIV con todo su contenido, se pone el width y heigth al 100%
+    tomando todo el espacio del div(en este caso toma heigth:45rem que le damos
+    en el Section a la imagen de fondo) y luedo con Display column alineamos verticalmente
+    y justificamos hotizontalmente el contenido(H2, imagen, p, button)  */
+    position: absolute;
+    background-color: rgba(0 0 0/70%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content-design-bg h2 {
+    color: var(--blanco);
+}
+
+.svg-design {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.svg-design p {
+    color: var(--blanco);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-top: 5rem;
+
+}
+
+.contact-design  {
+    background-color: var(--primario);
+    margin-top: 3rem;
+    padding: .5rem 2rem;
+    border-radius: .5rem;
+    color: var(--blanco);
+    font-size: 2.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 2rem;
+    width: 90%;
+}
+
+@media (max-width:768px) {
+    .contact-design  {
+        width: auto;
+    }
+}
+
+.main-container {
+    background-color: var(--blanco);
+    margin: .5rem 1rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    -webkit-box-shadow: -1px 3px 10px 6px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: -1px 3px 10px 6px rgba(0, 0, 0, 0.31);
+    box-shadow: -1px 3px 10px 6px rgba(0, 0, 0, 0.31);
+
+}
+
+.main-container h2 {
+    padding-top: 2rem;
+}
+
+/* Organizo la alineacion segun tamaño pantalla de los 3 servicios */
+.service-bg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .service-bg {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Vuelvo a alinear los SVG y el texto dentro de cada servicio. En el curso usan FLEX:GRID, YO USO FLEX PARA VER QUE RESULTABA */
+.service-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-content h3 {
+    color: var(--primario);
+    font-weight: normal;
+}
+
+.service-content .diseño {
+    background-color: var(--secundario);
+    border-radius: 100%;
+    padding: 6rem;
+
+}
+
+.service-content .api-web {
+    background-color: var(--secundario);
+    border-radius: 100%;
+    padding: 6rem 3rem;
+
+}
+
+.api-web .svg1 {
+    margin-right: 1rem;
+}
+
+.api-web .svg2 {
+    margin-left: 1rem;
+}
+
+.service-content .commerce {
+    background-color: var(--secundario);
+    border-radius: 100%;
+    padding: 6rem;
+}
+
+/*Diseño del parrafo dentro de casa servicio*/
+.service-content p {
+    line-height: 3rem;
+    font-weight: 700;
+}
+
+/* Borde section Formulario */
+
+.form-section {
+    background-color: var(--terciario);
+    /* width: min(60rem,100%); ajusta el formulario a su medida 60rem si esta es menor que el tamaño de la pantalla, sino se ajusta al 100% del tamaño de la pantalla en ese momento, o sea se va a ajustar al tamaño de la pantalla siempre que esta sea menor que 60rem */
+    width: min(60rem, 100%);
+    /* margin 0 auto; centro el contenido del formulario */
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 2rem;
+}
+
+.form-section fieldset{
+    border:none;
+}
+
+.form-section legend {
+    text-align: center;
+    color: var(--secundario);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+
+@media (min-width: 768px) {
+    .form-content {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .form-input:nth-child(3),
+    .form-input:nth-child(4) {
+        grid-column: 1/3;
+    }
+}
+
+.form-input {
+    margin-bottom: 1rem;
+    margin-left: -.5rem;
+}
+
+.form-input label {
+    color: var(--blanco);
+    font-weight: 700;
+    margin-bottom: .5rem;
+    display: block;
+    width: 100%;
+}
+
+.form-input input
+{
+    width: 100%;
+    padding: 1.8rem;
+    border-radius: .5rem;
+    border-style: unset;
+}
+.form-input textarea {
+    height: 20rem;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+
+/* Boton "submit" hereda de la clase Contact-design("Contactar") */
+
+.design{
+    width: 100%;
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    .design {
+        width: auto;
+    }
+    .contenedor-submit{
+        display: flex;
+        justify-content: end;
+    }
+}
+.footer{
+    color: var(--negro);
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+
